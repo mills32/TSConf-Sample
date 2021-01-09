@@ -2,15 +2,22 @@
  TSConf
 -------
 
-TSConf is basicaly a zx spectrum but with a PPU very similar to a Mega Drive/Genesis.
+TSConf is basicaly a zx spectrum created by tslabs. It is a zx spectrum with a PPU very similar to a Mega Drive/Genesis.
 
-Because nearly all the info about this computer is not in a language I can understand, and the samples I found 
-are not complete, I had to create this by taking code from demos, samples, a lot of testing, and also relay on 
-crappy google translations.
+Because nearly all the info about this computer is not in a language I can understand, (and the samples I found 
+are not complete), I had to create this by taking code from demos, samples, a lot of testing, and also relay on 
+crappy google translations. 
+
+I got info from these webs related to TSLabs: 
+https://hype.retroscene.org/blog/dev/page5/
+http://forum.tslabs.info/viewtopic.php?f=35&t=157
+http://prods.tslabs.info/
+
+You can find spgbld and tga2ts utils here https://ooh3dpsdytm34sfhws63yjfbwy--github-com.translate.goog/tslabs/zx-evo#hg%2Fpentevo%2Ftools%2Ftga2ts
+Do not use the samples from the last link as they don't contain real TSConf samples, but some kind of development kit to compile "pentevo" games for TSConf. (pentevo is another spectrum clone).
 
 First of all, I used z88dk, because it lets you mix assembly and c, and that's great for not getting lost inside big assembly codes.
 Any z80 compiler will work as long as you use the correct sintax.
-
 
 This code does the folloween:
 -Loads image to GFX layer
@@ -22,15 +29,18 @@ This code does the folloween:
 ABOUT IMAGES
 ------------
 You need to convert your images to tga 256 colours, and then use tga2ts to create resources for the spg container.
-You also have to use the same 256 colours for all your images. This palette has to be arranged in 16 palettes,
+Tga2ts nees a file called "levels.map" to work.
+All tiles, graphics and sprites on screen, will share the same 256 colours palette. This palette has to be arranged in 16 palettes,
 (16 colours each), because Tsconf uses the 256 colours with limitations:
-	-GFX layer can use the whole 256 colours, but I prefer to use only 16, 
-	 because I saw garbage on screen when using all layers. 
-	-Tile map layers use one 16 colours palette per tile (8x8 pixels each).
-	 Every tile can use a different palette, but only 4 consecutive palettes can be used for one layer.
-	-Sprites can use one 16 colours palette per sprite, (even if they are 64x64).
-	 You can select any of the 16 palettes for the sprites
+	-GFX layer can use the whole 256 colours, but I prefer to use only 16, because I saw garbage on screen when using all layers. 
+	-Tile map layers use one 16 colours palette per tile (8x8 pixels each). Every tile can use a different palette, but only 4 consecutive palettes can be used for one layer.
+	-Sprites can use one 16 colours palette per sprite, (even if they are 64x64). You can select any of the 16 palettes for the sprites
 	 
+SPG
+---
+
+TSConf uses spg files read from a hard disc, they are some kind of rom that stores resources and programs. To generate them, you need spgbld and mhmt.exe.
+
 
 DMA TRANSFER
 ------------
@@ -51,7 +61,7 @@ uint8_t Copy[] = {
 };
 
 SPRITE DESCRIPTOR STRUCTURE
-----------------
+---------------------------
 Every sprite is described by 6 bytes. First sprite starts at address 0x0200, and so on.
 
 BITS        	7		6		5		4	        3  2  1		0
@@ -73,3 +83,15 @@ LEAP = Bit that determines the transition to the next layer for subsequent sprit
 TNUM = Number of the first tile in a sprite of the specified size. Bits 0-5 = X position in sprite graphics page, bits 6-11 = Y position.
 SPAL = Select a palette. 4 bits - 16 palettes available.
 
+TILE MAPS
+---------
+
+TSConf has two tile-map layers, every tile is structured like this:
+
+TILE	Reg.16	7	6	5	4	3	2	1	0
+0	R0L	TNUM[7:0]							
+1	R0H	YF	XF	TPAL[5:4]		TNUM[11:8]	
+
+TNUM = tile number.
+XF, YF Flip atributes.
+TPAL = palete
