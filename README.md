@@ -12,12 +12,16 @@ Because nearly all the info about this computer is not in a language I can under
 are not complete), I had to create this by taking code from demos, samples, a lot of testing, and also relay on 
 crappy google translations. 
 
-I got info from these webs related to TSLabs: 
+I got info from these webs related to TSLabs:
+
 https://hype.retroscene.org/blog/dev/page5/
+
 http://forum.tslabs.info/viewtopic.php?f=35&t=157
+
 http://prods.tslabs.info/
 
 You can find spgbld and tga2ts utils here https://ooh3dpsdytm34sfhws63yjfbwy--github-com.translate.goog/tslabs/zx-evo#hg%2Fpentevo%2Ftools%2Ftga2ts
+
 Do not use the samples from the last link as they don't contain real TSConf samples, but some kind of development kit to compile "pentevo" games for TSConf. (pentevo is another spectrum clone).
 
 First of all, I used z88dk, because it lets you mix assembly and c, and that's great for not getting lost inside big assembly codes.
