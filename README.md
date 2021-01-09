@@ -43,7 +43,7 @@ This code does the folloween:
 ABOUT IMAGES
 ------------
 You need to convert your images to tga 256 colours, and then use tga2ts to create resources for the spg container.
-Tga2ts nees a file called "levels.map" to work.
+Tga2ts needs a file called "levels.map" to work.
 All tiles, graphics and sprites on screen, will share the same 256 colours palette. This palette has to be arranged in 16 palettes,
 (16 colours each), because Tsconf uses the 256 colours with limitations:
 	-GFX layer can use the whole 256 colours, but I prefer to use only 16, because I saw garbage on screen when using all layers. 
