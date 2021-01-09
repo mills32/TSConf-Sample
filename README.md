@@ -4,8 +4,7 @@
 
 TSConf is basicaly a zx spectrum created by tslabs. It is a zx spectrum with a PPU very similar to a Mega Drive/Genesis.
 
-![Screenshot](TSConf.png)
-
+![alt tag](https://raw.githubusercontent.com/mills32/TSConf-Sample/main/tsconf.png)
 
 You can emulate it using Zesarux or UnrealSpeccy. Or you can use an FPGA core in MiSTer.
 
