@@ -4,6 +4,8 @@
 
 TSConf is basicaly a zx spectrum created by tslabs. It is a zx spectrum with a PPU very similar to a Mega Drive/Genesis.
 
+You can emulate it using Zesarux or UnrealSpeccy. Or you can use an FPGA core in MiSTer.
+
 Because nearly all the info about this computer is not in a language I can understand, (and the samples I found 
 are not complete), I had to create this by taking code from demos, samples, a lot of testing, and also relay on 
 crappy google translations. 
@@ -72,7 +74,9 @@ BITS | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 3 R1H|XF|-|-|reserved|XS[2:0]|X[8]
 4 R2L|TNUM[7:0] (X pos in vram)	
 5 R2H|SPAL[7:4]||||TNUM[11:8] (Y pos in vram)	
+
 ```
+R-- = Register + Number + Low/High
 X = coordinate, byte + 1 bit (address can be in the range of 0-511)
 Y = coordinate, byte + 1 bit
 XS = size. (0 = 8, 1 = 16, ... 7 = 64 pixels)
@@ -88,12 +92,16 @@ SPAL = Select a palette. 4 bits - 16 palettes available.
 TILE MAPS
 ---------
 
-TSConf has two tile-map layers, every tile is structured like this:
+TSConf has two tile-map layers, every tile is structured in two bytes like this:
 
-TILE	Reg.16	7	6	5	4	3	2	1	0
-0	R0L	TNUM[7:0]							
-1	R0H	YF	XF	TPAL[5:4]		TNUM[11:8]	
+TILE|7|6|5|4|3|2|1|0|
+----- |----- |----- |----- |----- |----- |----- |----- |----- |
+0 R0L|TNUM[7:0]|						
+1 R0H|YF|XF|TPAL[5:4]|TNUM[11:8]|	
 
+```
+R-- = Register + Number + Low/High
 TNUM = tile number.
 XF, YF Flip atributes.
 TPAL = palete
+```
