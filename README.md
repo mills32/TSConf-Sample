@@ -46,7 +46,7 @@ DMA TRANSFER
 ------------
 
 I copied a DMA transfer function from tslabs forums. It uses some arrays like this to transfer things:
-
+```
 uint8_t Copy[] = {
 	0x1a,0,		// Source low
 	0x1b,0,		// Source high
@@ -59,19 +59,20 @@ uint8_t Copy[] = {
 	0x27,0,//DMA_RAM_SFILE	// Start
 	0xff
 };
-
+```
 SPRITE DESCRIPTOR STRUCTURE
 ---------------------------
 Every sprite is described by 6 bytes. First sprite starts at address 0x0200, and so on.
 
-BITS        	7		6		5		4	        3  2  1		0
-0		R0L		Y[7:0]							
-1		R0H		YF		LEAP	ACT		reserved	YS[2:0]		Y[8]
-2		R1L		X[7:0]							
-3		R1H		XF		-		-		reserved	XS[2:0]		X[8]
-4		R2L		TNUM[7:0] (X pos in vram)							
-5		R2H		SPAL[7:4]							TNUM[11:8] (Y pos in vram)			
-
+BITS | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+----- |----- |----- |----- |----- |----- |----- |----- |----- |
+0 | R0L | Y[7:0]|
+1|R0H|YF|LEAP|ACT|reserved|YS[2:0]
+2|R1L|X[7:0]|
+3|R1H|XF|-|-|reserved|XS[2:0]|X[8]
+4|R2L|TNUM[7:0] (X pos in vram)	
+5|R2H|SPAL[7:4]||||TNUM[11:8] (Y pos in vram)	
+```
 X = coordinate, byte + 1 bit (address can be in the range of 0-511)
 Y = coordinate, byte + 1 bit
 XS = size. (0 = 8, 1 = 16, ... 7 = 64 pixels)
@@ -82,6 +83,7 @@ ACT = Display sprite (on / off)
 LEAP = Bit that determines the transition to the next layer for subsequent sprites. The third transition marks the end of the sprite handles
 TNUM = Number of the first tile in a sprite of the specified size. Bits 0-5 = X position in sprite graphics page, bits 6-11 = Y position.
 SPAL = Select a palette. 4 bits - 16 palettes available.
+```
 
 TILE MAPS
 ---------
