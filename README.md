@@ -121,3 +121,5 @@ TNUM = tile number.
 XF, YF Flip atributes.
 TPAL = palete
 ```
+
+Also look at tsconf.xls by TSLabs for more info.
