@@ -28,11 +28,17 @@ First of all, I used z88dk, because it lets you mix assembly and c, and that's g
 Any z80 compiler will work as long as you use the correct sintax.
 
 This code does the folloween:
+
 -Loads image to GFX layer
+
 -Loads tiles for tile-map layers
+
 -Loads maps
+
 -Sets sprites and animate them
+
 -Scrolls GFX and tile-map layers
+
 
 ABOUT IMAGES
 ------------
