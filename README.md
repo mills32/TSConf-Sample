@@ -97,7 +97,7 @@ TSConf has two tile-map layers, every tile is structured in two bytes like this:
 TILE|7|6|5|4|3|2|1|0|
 ----- |----- |----- |----- |----- |----- |----- |----- |----- |
 0 R0L|TNUM[7:0]|						
-1 R0H|YF|XF|TPAL[5:4]|TNUM[11:8]|	
+1 R0H|YF|XF|TPAL[5:4]||TNUM[11:8]|	
 
 ```
 R-- = Register + Number + Low/High
