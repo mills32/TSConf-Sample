@@ -66,12 +66,12 @@ Every sprite is described by 6 bytes. First sprite starts at address 0x0200, and
 
 BITS | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
 ----- |----- |----- |----- |----- |----- |----- |----- |----- |
-0 | R0L | Y[7:0]|
-1|R0H|YF|LEAP|ACT|reserved|YS[2:0]
-2|R1L|X[7:0]|
-3|R1H|XF|-|-|reserved|XS[2:0]|X[8]
-4|R2L|TNUM[7:0] (X pos in vram)	
-5|R2H|SPAL[7:4]||||TNUM[11:8] (Y pos in vram)	
+0 R0L | Y[7:0]|
+1 R0H|YF|LEAP|ACT|reserved|YS[2:0]
+2 R1L|X[7:0]|
+3 R1H|XF|-|-|reserved|XS[2:0]|X[8]
+4 R2L|TNUM[7:0] (X pos in vram)	
+5 R2H|SPAL[7:4]||||TNUM[11:8] (Y pos in vram)	
 ```
 X = coordinate, byte + 1 bit (address can be in the range of 0-511)
 Y = coordinate, byte + 1 bit
