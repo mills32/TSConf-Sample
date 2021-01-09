@@ -2,7 +2,7 @@
  TSConf
 -------
 
-TSConf is basicaly a zx spectrum created by tslabs. It is a zx spectrum with a PPU very similar to a Mega Drive/Genesis.
+TSConf is basicaly a zx spectrum created by tslabs. But, it has a PPU very similar to a Mega Drive/Genesis.
 
 ![alt tag](https://raw.githubusercontent.com/mills32/TSConf-Sample/main/tsconf.png)
 
