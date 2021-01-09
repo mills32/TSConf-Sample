@@ -49,9 +49,9 @@ All tiles, graphics and sprites on screen, will share the same 256 colours palet
 
 -GFX layer can use the whole 256 colours, but I prefer to use only 16, because I saw garbage on screen when using all layers. 
 	
--Tile map layers use one 16 colours palette per tile (8x8 pixels each). Every tile can use a different palette, but only 4 consecutive palettes can be used for one layer.
+-Tile map layers use one 16 colour palette per tile (8x8 pixels each). Every tile can use a different palette, but only 4 consecutive palettes can be used for one layer.
 	
--Sprites can use one 16 colours palette per sprite, (even if they are 64x64). You can select any of the 16 palettes for the sprites
+-Sprites can use one 16 colour palette per sprite, (even if they are 64x64). You can select any of the 16 palettes for the sprites
 	
 	 
 SPG
