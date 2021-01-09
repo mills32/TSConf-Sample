@@ -1,39 +1,5 @@
 
-/*
----------------
- TSConf example
----------------
 
-TSConf is basicaly a zx spectrum but with a PPU very similar to a Mega Drive/Genesis.
-
-Because nearly all the info about this computer is not in a language I understand, and the samples I found 
-are not complete, I had to compose this by taking code from demos, samples, a lot of testing, 
-and also relay on crappy google translations.
-
-You need z88dk to compile this sample, but any z80 compiler will work as long as you use the correct sintaxis.
-
-
-This code does the folloween:
--Load image to GFX layer
--Load tiles for tile-map layers
--Load maps
--Set sprites and animate them
--Scroll GFX and tile-map layers
-
-ABOUT IMAGES
-------------
-You need to convert your images to tga 256 colours, and then use tga2ts to create resources for the spg container.
-You also have to use the same 256 colours for all your images. This palette has to be arranged in 16 palettes,
-(16 colours each), because Tsconf uses the 256 colours with limitations:
-	-GFX layer can use the whole 256 colours, but I prefer to use only 16, 
-	 because I saw garbage on screen when using all layers. 
-	-Tile map layers use one 16 colours palette per tile (8x8 pixels each).
-	 Every tile can use a different palette, but only 4 consecutive palettes can be used for one layer.
-	-Sprites can use one 16 colours palette per sprite, (even if they are 64x64).
-	 You can select any of the 16 palettes for the sprites
-	 
-So TSConf can use 144 colours on screen (16 GFX layer, 64 T0, 64 T1) + the ones used for sprites
-*/
 
 #include "tsconf.h"
 
@@ -62,7 +28,7 @@ So TSConf can use 144 colours on screen (16 GFX layer, 64 T0, 64 T1) + the ones 
 .sprites_end
 */
 
-#endasm
+
 
 uint8_t GFX_Page = 0x22; //Image at C000 page 0x22
 uint8_t GFX_Video_Page = 0xA0; //Page used for gfx display
@@ -780,7 +746,7 @@ void Update_Sprite_Descriptors(){
 	
 	LD  HL,_Sprite	//Source
     LD  DE,0x0200			//Destination
-    LD  BC,0x0030			//Counter (6*5)
+    LD  BC,0x0030			//Counter (6*8)
     LDIR
 
 	XOR  A				//Disable mapping
